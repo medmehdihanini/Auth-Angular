@@ -1,77 +1,22 @@
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="relative py-16 bg-blueGray-50">
-  <div class="w-full mb-12 px-4">
-    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded
-  bg-blue-900 text-white">
-      <div class="rounded-t mb-0 px-4 py-3 border-0">
-        <div class="flex flex-wrap items-center">
-          <div class="relative w-full px-4 max-w-full flex-grow flex-1 ">
-            <h3 class="font-semibold text-lg text-white">Card Tables</h3>
-          </div>
-        </div>
-      </div>
-      <div class="block w-full overflow-x-auto ">
-        <table class="items-center w-full bg-transparent border-collapse">
-          <thead>
-          <tr>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blue-800 text-blue-300 border-blue-950">category Name</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blue-800 text-blue-300 border-blue-950">Budget</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blue-800 text-blue-300 border-blue-950">category description</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blue-800 text-blue-300 border-blue-950"></th>
-          </tr>
-          </thead>
-
-          <tbody *ngFor="let cat of categories ">
-          <tr>
-            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-
-
-
-
-
-              <span class="ml-3 font-bold text-white"> {{cat.categoriename}} </span></th>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{cat.categorieprice}}</td>
-
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              {{cat.categoriecdescription}}
-            </td>
-
-            <td>
-              <button (click)="deleteCat(cat.id)" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
-            </td>
-          </tr>
-
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <footer class="relative pt-8 pb-6 mt-8">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center md:justify-between justify-center">
-        <div class="w-full md:w-6/12 px-4 mx-auto text-center">
-
-        </div>
-      </div>
-    </div>
-  </footer>
-</section>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-800">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 bg-opacity-50">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="px-6 py-3">Category Name</th>
+      <th scope="col" class="px-6 py-3">Budget</th>
+      <th scope="col" class="px-6 py-3">Category Description</th>
+      <th scope="col" class="px-6 py-3">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cat of categories" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ cat.categoriename }}</th>
+      <td class="px-6 py-4">{{ cat.categorieprice }}</td>
+      <td class="px-6 py-4">{{ cat.categoriecdescription }}</td>
+      <td class="px-6 py-4">
+        <button (click)="deleteCat(cat.id)" type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
