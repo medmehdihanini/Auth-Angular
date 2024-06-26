@@ -7,6 +7,7 @@ import {AffichageComponent} from "./Cat/affichage.component";
 import {AffichageServComponent} from "./Serv/affichage-serv/affichage-serv.component";
 import {AddServComponent} from "./Serv/add-serv/add-serv.component";
 import {UpdateservComponent} from "./Serv/updateserv/updateserv.component";
+import {RegistreComponent} from "./user/registre/registre.component";
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
 
   {
     path: 'serveice/update/:id', component: UpdateservComponent
+  },
+
+  {
+    path: 'registre', component: RegistreComponent
   }
 ];
 

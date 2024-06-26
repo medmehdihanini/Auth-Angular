@@ -17,6 +17,7 @@ export class AffichageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getall();
+    console.log("hhhh", this.categories);
   }
 
   getall() {
