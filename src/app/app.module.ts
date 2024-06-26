@@ -8,6 +8,7 @@ import {AffichageComponent} from "./Cat/affichage.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddComponent } from './Cat/add/add.component';
 import {FormsModule} from "@angular/forms";
+import { UpdateComponent } from './Cat/update/update.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {FormsModule} from "@angular/forms";
     AffichageComponent,
     NavbarComponent,
     AddComponent,
+    UpdateComponent,
 
   ],
   imports: [
