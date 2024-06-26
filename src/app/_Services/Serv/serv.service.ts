@@ -18,7 +18,7 @@ export class ServService {
 
 
 
-  addCategroie(serv: Services): Observable<Services> {
+  addserv(serv: Services): Observable<Services> {
     return this.http.post<Services>(this.ApiUrl + "add", serv, this.httpOptions);
   }
 
@@ -27,17 +27,17 @@ export class ServService {
     return this.http.get<Services[]>(this.ApiUrl + 'All');
 
   }
-  deleteetudiant(id:Number):Observable<Services[]> {
+  delte(id:Number):Observable<Services[]> {
     return this.http.delete<Services[]>(this.ApiUrl + 'delete/' + id);
   }
 
-  updateEtudiant(serv :Services): Observable<Services> {
+  update(serv :Services): Observable<Services> {
     return this.http.put<Services>(this.ApiUrl + 'Update', serv, this.httpOptions);
   }
 
 
 
-  getEtudiant(idString: string): Observable<Services> {
+  getone(idString: string): Observable<Services> {
     let id = parseInt(idString, 10);
     return this.http.get<Services>(this.ApiUrl + 'get/' + id);
   }
