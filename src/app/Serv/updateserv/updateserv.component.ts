@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {ServService} from "../../_Services/Serv/serv.service";
-import {Services} from "../../_Models/services";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { ServService } from "../../_Services/Serv/serv.service";
+import { Services } from "../../_Models/services";
 import Swal from "sweetalert2";
+import { Categorie } from "../../_Models/categorie";
+import { CategorieService } from "../../_Services/Cate/categorie.service";
 
 @Component({
   selector: 'app-updateserv',
@@ -11,25 +13,39 @@ import Swal from "sweetalert2";
 })
 export class UpdateservComponent implements OnInit {
   services!: Services;
-    constructor( private Service: ServService, private router: Router, private r: ActivatedRoute) {
-    }
+  categories!: Categorie[];
+
+  constructor(
+    private service: ServService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private categoriesService: CategorieService
+  ) {}
 
   ngOnInit(): void {
-    this.r.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.getServ(params['id']);
+      this.getCategories();
     });
   }
 
-   getServ(param: number) {
-    this.Service.getone(param.toString()).subscribe(data => {
+  getServ(id: number) {
+    this.service.getone(id.toString()).subscribe(data => {
+      if (!data.categorie) {
+        data.categorie = { id: 0, categoriename: '' };
+      }
       this.services = data;
-      console.log('data', this.services);
     });
+  }
 
+  getCategories() {
+    this.categoriesService.GetAll().subscribe(data => {
+      this.categories = data;
+    });
   }
 
   update() {
-    this.Service.update(this.services).subscribe(data => {
+    this.service.update(this.services).subscribe(() => {
       const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-right',

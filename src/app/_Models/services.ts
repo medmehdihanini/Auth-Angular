@@ -3,5 +3,5 @@ export class Services {
   servicename!: string;
   servicedescription!: string;
   serviceprice!: number;
-  categorie!: { id: number };
+  categorie!: { id: number,categoriename: string };
 }
