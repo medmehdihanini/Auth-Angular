@@ -8,6 +8,7 @@ import {AffichageServComponent} from "./Serv/affichage-serv/affichage-serv.compo
 import {AddServComponent} from "./Serv/add-serv/add-serv.component";
 import {UpdateservComponent} from "./Serv/updateserv/updateserv.component";
 import {RegistreComponent} from "./user/registre/registre.component";
+import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,9 @@ const routes: Routes = [
 
   {
     path: 'registre', component: RegistreComponent
+  },
+  {
+    path: 'login', component: LoginComponent
   }
 ];
 

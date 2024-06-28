@@ -13,6 +13,7 @@ import { AffichageServComponent } from './Serv/affichage-serv/affichage-serv.com
 import { AddServComponent } from './Serv/add-serv/add-serv.component';
 import { UpdateservComponent } from './Serv/updateserv/updateserv.component';
 import { RegistreComponent } from './user/registre/registre.component';
+import { LoginComponent } from './user/login/login.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { RegistreComponent } from './user/registre/registre.component';
     AddServComponent,
     UpdateservComponent,
     RegistreComponent,
+    LoginComponent,
 
   ],
   imports: [

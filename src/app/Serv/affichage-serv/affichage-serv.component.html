@@ -1,30 +1,38 @@
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-800">
-  <button  routerLink="/serveice/add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-    Feel free to add a New  Services
+  <button routerLink="/serveice/add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Feel free to add a New Service
   </button>
   <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 bg-opacity-50">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
     <tr>
-      <th scope="col" class="px-6 py-3">Services Name</th>
-      <th scope="col" class="px-6 py-3">Services Price  </th>
-      <th scope="col" class="px-6 py-3">Services Description</th>
+      <th scope="col" class="px-6 py-3">Service Name</th>
+      <th scope="col" class="px-6 py-3">Service Price</th>
+      <th scope="col" class="px-6 py-3">Service Description</th>
       <th scope="col" class="px-6 py-3">Under Category</th>
-
       <th scope="col" class="px-6 py-3">Action</th>
     </tr>
     </thead>
-    <tbody *ngFor="let serv of serivices">
-    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+    <tbody>
+    <tr *ngFor="let serv of serivices" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ serv.servicename }}</th>
-      <td class="px-6 py-4">{{ serv.servicedescription }}</td>
       <td class="px-6 py-4">{{ serv.serviceprice }}</td>
-      <td class="px-6 py-4">{{ serv.categorie?.categoriename }}</td> <!-- Affichage de la catégorie -->
+      <td class="px-6 py-4">{{ serv.servicedescription }}</td>
+      <td class="px-6 py-4">{{ serv.categorie?.categoriename }}</td>
       <td class="px-6 py-4">
-        <button (click)="deleteServ(serv.id)" class="mr-2 ...">Delete</button>
-        <button routerLink="/serveice/update/{{ serv.id }}" class="ml-2 ...">Update</button>
+        <button (click)="deleteServ(serv.id)"
+                class="mr-2 select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+        >
+          Delete
+        </button>
+        <button routerLink="/serveice/update/{{ serv.id }}"
+                class="ml-2 select-none rounded-lg bg-amber-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+        >
+          Update
+        </button>
       </td>
     </tr>
     </tbody>
-
   </table>
 </div>

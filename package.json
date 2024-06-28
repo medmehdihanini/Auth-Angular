@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api-gen": "ng-openapi-gen --input ./src/app/OpenAPi/openapi.json --output ./src/app/OpenApiGenerated"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@sweetalert2/ngx-sweetalert2": "^12.3.0",
+    "ng-openapi-gen": "^0.51.0",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.12.0",
     "tslib": "^2.3.0",
