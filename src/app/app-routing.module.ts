@@ -12,7 +12,7 @@ import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {
-    path: '', component: AffichageComponent
+    path: 'categ', component: AffichageComponent
   },
     {
         path: 'add', component: AddComponent
@@ -35,7 +35,7 @@ const routes: Routes = [
     path: 'registre', component: RegistreComponent
   },
   {
-    path: 'login', component: LoginComponent
+    path: '', component: LoginComponent
   }
 ];
 
