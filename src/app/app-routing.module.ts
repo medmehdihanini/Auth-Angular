@@ -9,6 +9,7 @@ import {AddServComponent} from "./Serv/add-serv/add-serv.component";
 import {UpdateservComponent} from "./Serv/updateserv/updateserv.component";
 import {RegistreComponent} from "./user/registre/registre.component";
 import {LoginComponent} from "./user/login/login.component";
+import {ActivateAccountComponent} from "./user/activate-account/activate-account.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
 
   {
     path: 'registre', component: RegistreComponent
+  },
+  {
+    path: 'activate-account', component: ActivateAccountComponent
   },
   {
     path: '', component: LoginComponent

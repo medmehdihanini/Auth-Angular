@@ -1,0 +1,44 @@
+<div class="flex items-center justify-center min-h-screen " *ngIf="submitted else codeForm">
+  <div class="text-center p-4 rounded"  *ngIf="isOkay; else activationError">
+    <h2 class="text-2xl font-bold mb-3 text-blue-50">Activation Successful!</h2>
+    <p class="text-blue-50">Your account has been successfully activated.</p>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-3" (click)="redirectToLogin()">Go to Login</button>
+  </div>
+  <ng-template #activationError>
+    <div class="text-center p-4 rounded" >
+      <h2 class="text-2xl font-bold mb-3 text-red-700">Activation Failed!</h2>
+      <p class="text-white">{{ message }}</p>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-3" (click)="submitted = false">Try again</button>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #codeForm>
+  <div class="flex items-center justify-center min-h-screen ">
+    <div class="w-full max-w-md">
+      <div class="text-center p-4 rounded bg-amber-50 bg-opacity-20" >
+        <h2 class="text-2xl font-bold mb-3  text-blue-50">Type your activation code</h2>
+        <code-input [isCodeHidden]="false"
+                    [codeLength]="6"
+                    [code]="'number'"
+                    (codeCompleted)="onCodeCompleted($event)"
+                    style="--color: white; --item-font-size: 1em;
+                    --item-spacing: 10px;
+    --item-height: 3em;
+    --item-border: none;
+    --item-border-bottom: 2px solid #dddddd;
+    --item-border-has-value: none;
+    --item-border-bottom-has-value: 2px solid #888888;
+    --item-border-focused: none;
+    --item-border-bottom-focused: 2px solid #809070;
+    --item-shadow-focused: none;
+    --item-border-radius: 0px;;"
+
+        >
+        </code-input>
+
+        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-3" (click)="redirectToLogin()">Go to Login</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
