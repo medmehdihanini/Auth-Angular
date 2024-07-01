@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServService} from "../../_Services/Serv/serv.service";
 import {Services} from "../../_Models/services";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-affichage-serv',
@@ -9,17 +10,20 @@ import {Services} from "../../_Models/services";
 })
 export class AffichageServComponent  implements OnInit {
   serivices!: Services[];
-  constructor(private Service: ServService) {
+
+  constructor(private Service: ServService,private router: Router) {
   }
 
   ngOnInit(): void {
       this.getall();
+
   }
 
    getall() {
 return this.Service.GetAll().subscribe(data => {
     this.serivices = data;
     console.log("data", this.serivices);
+
 });
 }
 

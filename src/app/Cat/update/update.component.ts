@@ -44,7 +44,7 @@ export class UpdateComponent implements OnInit {
         icon: 'success',
         title: 'Category updated successfully'
       }).then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/categ']);
       });
     }, error => {
       const Toast = Swal.mixin({

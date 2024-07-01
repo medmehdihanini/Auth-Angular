@@ -10,26 +10,27 @@ import {UpdateservComponent} from "./Serv/updateserv/updateserv.component";
 import {RegistreComponent} from "./user/registre/registre.component";
 import {LoginComponent} from "./user/login/login.component";
 import {ActivateAccountComponent} from "./user/activate-account/activate-account.component";
+import {AuthentificationGuard} from "./guard/authentification.guard";
 
 const routes: Routes = [
   {
-    path: 'categ', component: AffichageComponent
+    path: 'categ', component: AffichageComponent,canActivate:[AuthentificationGuard]
   },
     {
-        path: 'add', component: AddComponent
+        path: 'add', component: AddComponent ,canActivate:[AuthentificationGuard]
     },
   {
-    path: 'update/:id', component: UpdateComponent
+    path: 'update/:id', component: UpdateComponent,canActivate:[AuthentificationGuard]
   },
   {
-    path: 'serveice', component: AffichageServComponent
+    path: 'serveice', component: AffichageServComponent,canActivate:[AuthentificationGuard]
   },
   {
-    path: 'serveice/add', component: AddServComponent
+    path: 'serveice/add', component: AddServComponent,canActivate:[AuthentificationGuard]
   },
 
   {
-    path: 'serveice/update/:id', component: UpdateservComponent
+    path: 'serveice/update/:id', component: UpdateservComponent,canActivate:[AuthentificationGuard]
   },
 
   {
