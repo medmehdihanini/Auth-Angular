@@ -21,6 +21,7 @@ constructor(
   registryRequest:RegistrationRequest= {email: '', password: '', firstName: '', lastName: ''}
   errorMsg: Array<string> = [];
 
+
   Registre() {
     this.errorMsg = [];
     this.authService.registre_1({

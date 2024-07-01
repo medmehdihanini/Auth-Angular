@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthentificationControllerService} from "../../OpenApiGenerated/services/authentification-controller.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-activate-account',
   templateUrl: './activate-account.component.html',
   styleUrls: ['./activate-account.component.css']
 })
-export class ActivateAccountComponent {
+export class ActivateAccountComponent implements OnInit {
 
   constructor(
     private router: Router,
@@ -15,6 +16,25 @@ export class ActivateAccountComponent {
 
   ) {
   }
+
+  ngOnInit(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-right',
+      showConfirmButton: false,
+      timer: 7000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'An email has been sent to your account. Please verify it.'
+    });
+    }
 
   message: string = '';
   isOkay: boolean = true;

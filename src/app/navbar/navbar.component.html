@@ -23,6 +23,11 @@
   <a href="#" class="p-2 mr-4 inline-flex items-center">
     <span class="text-xl text-white font-bold uppercase tracking-wide animate-bounce animate-infinite">Welcome</span>
   </a>
+  <div *ngIf="isLoggin">
+  <button (click)="logout()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+    logout
+  </button>
+  </div>
   <button
     class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
     data-target="#navigation"

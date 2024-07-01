@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'registre', component: RegistreComponent
   },
   {
-    path: 'activate-account', component: ActivateAccountComponent
+    path: 'activated-Account', component: ActivateAccountComponent
   },
   {
     path: '', component: LoginComponent

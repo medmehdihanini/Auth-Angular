@@ -2,21 +2,25 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Categorie} from "../../_Models/categorie";
 import {Observable} from "rxjs";
+import {TokenService} from "../Token/token.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategorieService {
   ApiUrl = 'http://localhost:6060/categ/';
+
+  constructor(private http: HttpClient, private tokenService: TokenService) {
+  }
+token = this.tokenService.token;
+
+
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
     })
   }
-  constructor(private http: HttpClient) {
-  }
-
-
 
   addCategroie(cat: Categorie): Observable<Categorie> {
     return this.http.post<Categorie>(this.ApiUrl + "add", cat, this.httpOptions);
@@ -24,11 +28,11 @@ export class CategorieService {
 
 
   GetAll():Observable<Categorie[]>{
-    return this.http.get<Categorie[]>(this.ApiUrl + 'getAll');
+    return this.http.get<Categorie[]>(this.ApiUrl + 'getAll',this.httpOptions);
 
   }
   delete(id:Number):Observable<Categorie[]> {
-    return this.http.delete<Categorie[]>(this.ApiUrl + 'delete/' + id);
+    return this.http.delete<Categorie[]>(this.ApiUrl + 'delete/' + id,this.httpOptions);
   }
 
   update(categorie :Categorie): Observable<Categorie> {
@@ -39,6 +43,6 @@ export class CategorieService {
 
   getcat(idString: string): Observable<Categorie> {
     let id = parseInt(idString, 10);
-    return this.http.get<Categorie>(this.ApiUrl + 'get/' + id);
+    return this.http.get<Categorie>(this.ApiUrl + 'get/' + id,this.httpOptions);
   }
 }
