@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 })
 export class TokenService {
     ApiUrl = 'http://localhost:6060/auth/user';
+   roleAs?: string ;
   constructor(private http: HttpClient) {
   }
   httpOptions = {
@@ -43,8 +44,11 @@ export class TokenService {
       isLoggedIn() {
         return !!this.token;    }
 
+  getRole(role:String) {
+    this.roleAs = localStorage.getItem('role') as string;
+    return this.roleAs == role;
 
-
+  }
   getUserInfo():Observable<User> {
     return this.http.get<User>(`${this.ApiUrl}`, this.httpOptions);
   }
