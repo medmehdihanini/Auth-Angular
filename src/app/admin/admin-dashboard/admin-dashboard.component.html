@@ -1,0 +1,39 @@
+<div >
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+  <div class="container mx-auto py-6 px-4">
+    <h1 class="text-3xl py-4 border-b mb-10 text-white">User Information</h1>
+
+    <div *ngIf="AllUsersInfo">
+      <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative opacity-70" style="height: 405px;">
+        <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+          <thead>
+          <tr class="text-left">
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Role</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">First Name</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Last Name</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Email</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Account Locked</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Enabled</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Last Modified Date</th>
+            <th class="bg-gray-100 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Created Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of AllUsersInfo">
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.role }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.firstName }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.lastName }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.email }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.accountlocked }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.enabled }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.lastmodifieddate }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.createddate }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

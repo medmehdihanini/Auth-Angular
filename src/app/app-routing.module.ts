@@ -16,6 +16,8 @@ import {ResetPasswordComponent} from "./user/reset-password/reset-password.compo
 import {ResetPasswordService} from "./_Services/Password/reset-password.service";
 
 const routes: Routes = [
+
+
   {
     path: 'categ', component: AffichageComponent,canActivate:[AuthentificationGuard]
   },
@@ -51,7 +53,8 @@ const routes: Routes = [
 
   {
     path: '', component: LoginComponent
-  }
+  },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

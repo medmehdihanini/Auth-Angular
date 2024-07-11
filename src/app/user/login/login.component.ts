@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AuthentificationControllerService } from "../../OpenApiGenerated/services/authentification-controller.service";
 import { TokenService } from "../../_Services/Token/token.service";
 import { AuthentificationResponse } from "../../OpenApiGenerated/models/authentification-response";
+import {User} from "../../OpenApiGenerated/models/user";
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { AuthentificationResponse } from "../../OpenApiGenerated/models/authenti
 export class LoginComponent {
   authRequest: AuthentificationRequest = { email: '', password: '' };
   errorMsg: Array<string> = [];
+   User?: User;
 
   constructor(
     private router: Router,
@@ -26,6 +28,7 @@ export class LoginComponent {
       body: this.authRequest
     }).subscribe({
       next: (res: any) => {
+
         if (res instanceof Blob && res.type === 'application/json') {
           const reader = new FileReader();
           reader.onload = (e: any) => {
@@ -42,6 +45,11 @@ export class LoginComponent {
             console.log('Unexpected response:', res);
           this.errorMsg.push('An unexpected error occurred.');
         }
+
+        this.tokenService.getUserInfo().subscribe((data) => {
+
+          this.tokenService.Role=data.role;
+        });
       },
       error: (err) => {
         console.log('Error response:', err);
@@ -67,5 +75,8 @@ export class LoginComponent {
         }
       }
     });
+
+
+
   }
 }

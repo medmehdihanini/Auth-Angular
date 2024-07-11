@@ -3,6 +3,7 @@ import {User} from "../../OpenApiGenerated/models/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Services} from "../../_Models/services";
 import {Observable} from "rxjs";
+import {UserInfo} from "../../_Models/UserInfo";
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class TokenService {
     return this.roleAs == role;
 
   }
-  getUserInfo():Observable<User> {
-    return this.http.get<User>(`${this.ApiUrl}`, this.httpOptions);
+  getUserInfo():Observable<UserInfo> {
+    return this.http.get<UserInfo>(`${this.ApiUrl}`, this.httpOptions);
   }
 }
