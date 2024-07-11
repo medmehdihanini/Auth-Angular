@@ -16,6 +16,8 @@ import { RegistreComponent } from './user/registre/registre.component';
 import { LoginComponent } from './user/login/login.component';
 import { ActivateAccountComponent } from './user/activate-account/activate-account.component';
 import {CodeInputModule} from "angular-code-input";
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { ForgetPasswordComponent } from './user/forget-password/forget-password.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {CodeInputModule} from "angular-code-input";
     RegistreComponent,
     LoginComponent,
     ActivateAccountComponent,
+    ResetPasswordComponent,
+    ForgetPasswordComponent,
 
   ],
   imports: [

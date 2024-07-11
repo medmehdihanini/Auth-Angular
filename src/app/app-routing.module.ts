@@ -11,6 +11,9 @@ import {RegistreComponent} from "./user/registre/registre.component";
 import {LoginComponent} from "./user/login/login.component";
 import {ActivateAccountComponent} from "./user/activate-account/activate-account.component";
 import {AuthentificationGuard} from "./guard/authentification.guard";
+import {ForgetPasswordComponent} from "./user/forget-password/forget-password.component";
+import {ResetPasswordComponent} from "./user/reset-password/reset-password.component";
+import {ResetPasswordService} from "./_Services/Password/reset-password.service";
 
 const routes: Routes = [
   {
@@ -39,6 +42,13 @@ const routes: Routes = [
   {
     path: 'activated-Account', component: ActivateAccountComponent
   },
+  {
+    path: 'reset-Password', component: ForgetPasswordComponent
+  },
+  {
+    path: 'forget_password', component: ResetPasswordComponent
+  },
+
   {
     path: '', component: LoginComponent
   }

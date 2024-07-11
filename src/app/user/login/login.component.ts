@@ -39,7 +39,7 @@ export class LoginComponent {
           };
           reader.readAsText(res);
         } else {
-          console.log('Unexpected response:', res);
+            console.log('Unexpected response:', res);
           this.errorMsg.push('An unexpected error occurred.');
         }
       },
