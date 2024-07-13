@@ -5,6 +5,7 @@
   <div class="container mx-auto py-6 px-4">
     <h1 class="text-3xl py-4 border-b mb-10 text-white">User Information</h1>
 
+
     <div *ngIf="AllUsersInfo">
       <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative opacity-70" style="height: 405px;">
         <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
@@ -26,14 +27,52 @@
             <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.firstName }}</td>
             <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.lastName }}</td>
             <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.email }}</td>
-            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.accountlocked }}</td>
-            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.enabled }}</td>
-            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.lastmodifieddate }}</td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">
+              <ng-container *ngIf="user.accountlocked; else unlocked">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5" (click)="UnBanUser(user.email)" >
+                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
+                </svg>
+              </ng-container>
+              <ng-template #unlocked>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5"  (click)="BanUser(user.email)">
+                  <path fill-rule="evenodd" d="M14.5 1A4.5 4.5 0 0 0 10 5.5V9H3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1.5V5.5a3 3 0 1 1 6 0v2.75a.75.75 0 0 0 1.5 0V5.5A4.5 4.5 0 0 0 14.5 1Z" clip-rule="evenodd" />
+                </svg>
+              </ng-template>
+            </td>
+            <td class="border-dashed border-t border-gray-200 px-6 py-3">
+              <ng-container *ngIf="user.enabled; else disabled">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5" (click)="DisableAccount(user.email)">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                </svg>
+              </ng-container>
+              <ng-template #disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5" (click)="EnableAccount(user.email)">
+                  <path fill-rule="evenodd" d="m5.965 4.904 9.131 9.131a6.5 6.5 0 0 0-9.131-9.131Zm8.07 10.192L4.904 5.965a6.5 6.5 0 0 0 9.131 9.131ZM4.343 4.343a8 8 0 1 1 11.314 11.314A8 8 0 0 1 4.343 4.343Z" clip-rule="evenodd" />
+                </svg>
+              </ng-template>
+            </td>            <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.lastmodifieddate }}</td>
             <td class="border-dashed border-t border-gray-200 px-6 py-3">{{ user.createddate }}</td>
           </tr>
           </tbody>
         </table>
+
+
+
+
+
       </div>
+
+
+
+
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+

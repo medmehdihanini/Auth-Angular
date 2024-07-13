@@ -13,7 +13,7 @@ export class RoleguardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-if (this.tokenService.getRole("Admin")) {
+if (this.tokenService.getRole("ADMIN")) {
   return true
 }
   else {

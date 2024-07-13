@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
     this.tokenService.getUserInfo().subscribe((data) => {
       this.User = data;
       console.log("data"  ,data.role)
+      this.tokenService.Role=data.role
     });
   }
 

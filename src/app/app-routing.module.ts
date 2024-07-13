@@ -14,6 +14,7 @@ import {AuthentificationGuard} from "./guard/authentification.guard";
 import {ForgetPasswordComponent} from "./user/forget-password/forget-password.component";
 import {ResetPasswordComponent} from "./user/reset-password/reset-password.component";
 import {ResetPasswordService} from "./_Services/Password/reset-password.service";
+import {RoleguardGuard} from "./guard/roleguard.guard";
 
 const routes: Routes = [
 
@@ -54,7 +55,7 @@ const routes: Routes = [
   {
     path: '', component: LoginComponent
   },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+  { path: 'admin',loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({
